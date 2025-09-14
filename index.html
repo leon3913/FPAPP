@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trae Finance Dashboard - 个人财务管理系统</title>
+    <meta name="description" content="现代化的个人财务管理仪表盘，提供实时数据分析和美观的用户界面">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .hero {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            margin-bottom: 2rem;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            color: #64748b;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .feature-card {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .feature-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 1rem;
+        }
+        
+        .feature-desc {
+            color: #64748b;
+            line-height: 1.6;
+        }
+        
+        .demo-section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+        
+        .demo-dashboard {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .stats-demo {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .stat-card {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #10b981;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+        
+        .expense .stat-value {
+            color: #ef4444;
+        }
+        
+        .transactions-demo {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .transaction-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .transaction-item:last-child {
+            border-bottom: none;
+        }
+        
+        .transaction-desc {
+            font-weight: 600;
+            color: #1e293b;
+        }
+        
+        .transaction-amount {
+            font-weight: 700;
+        }
+        
+        .income {
+            color: #10b981;
+        }
+        
+        .expense {
+            color: #ef4444;
+        }
+        
+        .cta-section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin: 0.5rem;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+        }
+        
+        .tech-stack {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid #e2e8f0;
+        }
+        
+        .tech-items {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .tech-item {
+            background: #f1f5f9;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            color: #475569;
+            font-weight: 500;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .container {
+                padding: 1rem;
+            }
+            
+            .hero, .demo-section, .cta-section {
+                padding: 2rem;
+            }
+            
+            .stats-demo {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="hero">
+            <h1>🚀 Trae Finance Dashboard</h1>
+            <p>现代化的个人财务管理系统，让您轻松掌控财务状况，实现财富增长目标</p>
+        </div>
+        
+        <div class="features">
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <div class="feature-title">实时数据分析</div>
+                <div class="feature-desc">智能分析您的收支情况，提供详细的财务报表和趋势预测</div>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">💳</div>
+                <div class="feature-title">交易记录管理</div>
+                <div class="feature-desc">自动分类和记录所有交易，支持多种支付方式和账户管理</div>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">🎯</div>
+                <div class="feature-title">目标设定与追踪</div>
+                <div class="feature-desc">设定储蓄目标，追踪进度，获得个性化的理财建议</div>
+            </div>
+        </div>
+        
+        <div class="demo-section">
+            <h2 style="margin-bottom: 2rem; color: #1e293b;">📱 仪表盘预览</h2>
+            
+            <div class="demo-dashboard">
+                <div class="stats-demo">
+                    <div class="stat-card">
+                        <div class="stat-value">¥12,580</div>
+                        <div class="stat-label">本月收入</div>
+                    </div>
+                    <div class="stat-card expense">
+                        <div class="stat-value">¥8,420</div>
+                        <div class="stat-label">本月支出</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">¥4,160</div>
+                        <div class="stat-label">净收益</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">¥45,280</div>
+                        <div class="stat-label">总资产</div>
+                    </div>
+                </div>
+                
+                <div class="transactions-demo">
+                    <h3 style="margin-bottom: 1rem; color: #1e293b;">最近交易</h3>
+                    <div class="transaction-item">
+                        <div>
+                            <div class="transaction-desc">工资收入</div>
+                            <div style="font-size: 0.9rem; color: #64748b;">2024-01-15</div>
+                        </div>
+                        <div class="transaction-amount income">+¥8,500</div>
+                    </div>
+                    <div class="transaction-item">
+                        <div>
+                            <div class="transaction-desc">超市购物</div>
+                            <div style="font-size: 0.9rem; color: #64748b;">2024-01-14</div>
+                        </div>
+                        <div class="transaction-amount expense">-¥320</div>
+                    </div>
+                    <div class="transaction-item">
+                        <div>
+                            <div class="transaction-desc">投资收益</div>
+                            <div style="font-size: 0.9rem; color: #64748b;">2024-01-13</div>
+                        </div>
+                        <div class="transaction-amount income">+¥1,200</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="cta-section">
+            <h2 style="margin-bottom: 1rem; color: #1e293b;">🎉 立即开始使用</h2>
+            <p style="margin-bottom: 2rem; color: #64748b;">体验现代化的财务管理，让理财变得简单高效</p>
+            
+            <a href="#" class="btn" onclick="alert('演示版本，完整功能请部署到服务器')">🚀 开始使用</a>
+            <a href="https://github.com" class="btn" style="background: linear-gradient(135deg, #24292e, #586069);">📚 查看源码</a>
+            
+            <div class="tech-stack">
+                <h3 style="color: #1e293b; margin-bottom: 1rem;">🛠️ 技术栈</h3>
+                <div class="tech-items">
+                    <span class="tech-item">React 18</span>
+                    <span class="tech-item">Node.js</span>
+                    <span class="tech-item">Express</span>
+                    <span class="tech-item">MongoDB</span>
+                    <span class="tech-item">Chart.js</span>
+                    <span class="tech-item">Redux</span>
+                    <span class="tech-item">JWT Auth</span>
+                    <span class="tech-item">Responsive Design</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // 添加一些交互效果
+        document.addEventListener('DOMContentLoaded', function() {
+            // 统计数字动画
+            const statValues = document.querySelectorAll('.stat-value');
+            statValues.forEach(stat => {
+                const finalValue = stat.textContent;
+                const numericValue = parseInt(finalValue.replace(/[^\d]/g, ''));
+                let currentValue = 0;
+                const increment = numericValue / 50;
+                const timer = setInterval(() => {
+                    currentValue += increment;
+                    if (currentValue >= numericValue) {
+                        currentValue = numericValue;
+                        clearInterval(timer);
+                    }
+                    stat.textContent = finalValue.replace(numericValue.toString(), Math.floor(currentValue).toLocaleString());
+                }, 30);
+            });
+            
+            // 卡片悬停效果
+            const cards = document.querySelectorAll('.feature-card, .stat-card');
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px) scale(1.02)';
+                });
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+{
+  "name": "trae-finance-dashboard",
+  "version": "1.0.0",
+  "description": "Interactive Financial Management Dashboard - A modern React-based personal finance tracking application",
+  "main": "index.html",
+  "scripts": {
+    "start": "serve -s . -l 3000",
+    "build": "echo 'Static files ready for deployment'",
+    "deploy": "gh-pages -d ."
+  },
+  "keywords": [
+    "finance",
+    "dashboard",
+    "react",
+    "personal-finance",
+    "money-management",
+    "budget-tracker",
+    "expense-tracker",
+    "financial-analytics"
+  ],
+  "author": "Trae AI",
+  "license": "MIT",
+  "homepage": "https://username.github.io/trae-finance-dashboard",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/username/trae-finance-dashboard.git"
+  },
+  "bugs": {
+    "url": "https://github.com/username/trae-finance-dashboard/issues"
+  },
+  "devDependencies": {
+    "gh-pages": "^6.1.1",
+    "serve": "^14.2.1"
+  },
+  "engines": {
+    "node": ">=14.0.0",
+    "npm": ">=6.0.0"
+  }
+}
